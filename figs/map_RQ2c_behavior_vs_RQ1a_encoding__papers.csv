@@ -1,0 +1,17 @@
+Encoding,Behavior,Papers_MyKey,Count_unique_papers
+learnable and adaptive encoding,Stable,"['P01', 'P02', 'P05', 'P08', 'P09', 'P13', 'P17', 'P18']",8
+Adaptive encoding,Stable,"['P10', 'P16', 'P19']",3
+learnable and adaptive encoding,Convergence,"['P02', 'P03', 'P09']",3
+learnable encoding,Stable,"['P06', 'P12', 'P14']",3
+learnable and adaptive encoding,Smoothness,"['P01', 'P03']",2
+learnable encoding,Performance sensitive to time-step,"['P11', 'P12']",2
+Adaptive encoding,Convergence,['P04'],1
+Adaptive encoding,Faster training,['P10'],1
+learnable and adaptive encoding,Efficiency,['P08'],1
+learnable and adaptive encoding,Faster training,['P09'],1
+learnable and adaptive encoding,Higher simulation speed,['P03'],1
+learnable and adaptive encoding,Randomness reduced,['P02'],1
+learnable and adaptive encoding,Slower,['P17'],1
+learnable encoding,Convergence,['P11'],1
+learnable encoding,Faster training,['P15'],1
+learnable encoding,Hardware-induced performance degradation,['P07'],1

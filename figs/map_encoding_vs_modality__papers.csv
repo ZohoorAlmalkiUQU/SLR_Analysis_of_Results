@@ -1,0 +1,10 @@
+enc,mod,Papers_MyKey,Count_unique_papers
+learnable and adaptive encoding,Vision,"['P01', 'P02', 'P05', 'P08', 'P13']",5
+learnable encoding,Vision,"['P06', 'P07', 'P12', 'P15']",4
+Adaptive encoding,Biosignals,"['P04', 'P10', 'P19']",3
+Adaptive encoding,Audio,"['P16', 'P19']",2
+learnable and adaptive encoding,Multimodal,"['P09', 'P18']",2
+learnable and adaptive encoding,Real Numbers,"['P03', 'P17']",2
+learnable and adaptive encoding,Audio,['P05'],1
+learnable encoding,Audio,['P14'],1
+learnable encoding,Texts,['P11'],1
