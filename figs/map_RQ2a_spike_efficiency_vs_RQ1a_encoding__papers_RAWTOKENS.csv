@@ -1,0 +1,17 @@
+Encoding,Spike_Eff_Token,Papers_MyKey,Count_unique_papers
+learnable and adaptive encoding,Sparse spike activity,"['P01', 'P03', 'P08', 'P09', 'P17', 'P18']",6
+learnable and adaptive encoding,Reduced firing rate,"['P01', 'P02', 'P03', 'P08']",4
+Adaptive encoding,Sparse spike activity,"['P04', 'P10', 'P19']",3
+learnable and adaptive encoding,Efficient Timesteps,"['P01', 'P02', 'P05']",3
+Adaptive encoding,Reduced firing rate,"['P16', 'P19']",2
+learnable and adaptive encoding,Activity-driven suppression,"['P05', 'P08']",2
+learnable encoding,Activity-driven suppression,"['P07', 'P14']",2
+learnable encoding,Efficient Timesteps,"['P06', 'P11']",2
+learnable encoding,Sparse spike activity,"['P07', 'P14']",2
+Adaptive encoding,Activity-driven suppression,['P10'],1
+Adaptive encoding,Efficient Timesteps,['P04'],1
+Adaptive encoding,Reduced spike count,['P16'],1
+learnable and adaptive encoding,Activity-driven responsiveness,['P05'],1
+learnable and adaptive encoding,Reduced spike count,['P13'],1
+learnable and adaptive encoding,Stable spike behavior,['P01'],1
+learnable encoding,Reduced firing rate,['P06'],1
