@@ -1,0 +1,20 @@
+My_Key,Title,DOI,QA1. Purpose & Context,QA2. Methodological Quality,QA3. Data & Tools Transparency,QA4. Rigor & Validity,QA5. Results & Interpretation,QA6. Contribution & Credibility,Total QA Score
+P01,Accurate and {Efficient} {Event}-based {Semantic} {Segmentation} {Using} {Adaptive} {Spiking} {Encoder}-{Decoder} {Network},10.48550/arXiv.2304.11857,2,2,1,2,2,2.0,11
+P02,Brain-Inspired Architecture for Spiking Neural Networks,10.3390/biomimetics9100646,2,1,1,1,2,1.0,8
+P03,Brain-Inspired Spiking Neural Networks in {{Engineering Mechanics}}: A New Physics-Based Self-Learning Framework for Sustainable {{Finite Element}} Analysis,10.1007/s00366-024-01967-3,2,2,2,2,2,1.0,11
+P04,"Diagnostic Biomarker Discovery from Brain {{EEG}} Data Using {{LSTM}}, Reservoir-{{SNN}}, and {{NeuCube}} Methods in a Pilot Study Comparing Epilepsy and Migraine",10.1038/s41598-024-60996-6,2,1,1,1,2,2.0,9
+P05,DTS-SNN: Spiking Neural Networks With Dynamic Time-Surfaces,10.1109/ACCESS.2022.3209671,2,2,1,2,2,1.0,10
+P06,Efficient {ANN}-{SNN} {Conversion} with {Error} {Compensation} {Learning},10.48550/arXiv.2506.01968,2,2,1,1,1,1.0,8
+P07,Encoding Event-Based Data With a Hybrid SNN Guided Variational Auto-encoder in Neuromorphic Hardware - Proceedings of the 2022 Annual Neuro-Inspired Computational Elements Conference,10.1145/3517343.3517372,2,2,1,1,2,,8
+P08,Enhancing spiking neural networks with hybrid top-down attention,10.3389/fnins.2022.949142,2,1,2,1,2,2.0,10
+P09,Event-{Enhanced} {Multi}-{Modal} {Spiking} {Neural} {Network} for {Dynamic} {Obstacle} {Avoidance} - Proceedings of the 31st {ACM} {International} {Conference} on {Multimedia},10.1145/3581783.3612147,2,2,1,2,2,2.0,11
+P10,Feasibility study on the application of a spiking neural network in myoelectric control systems,10.3389/fnins.2023.1174760,1,1,1,1,2,1.0,7
+P11,Hybrid photonic deep convolutional residual spiking neural networks for text classification,10.1364/OE.497218,1,1,1,1,1,1.0,6
+P12,Hybrid Spiking Fully Convolutional Neural Network for Semantic Segmentation,10.3390/electronics12173565,1,1,2,1,2,1.0,8
+P13,NeuBridge: bridging quantized activations and spiking neurons for ANN-SNN conversion,10.1088/2634-4386/ade183,2,2,1,1,1,2.0,9
+P14,Single {{Channel Speech Enhancement Using U-Net Spiking Neural Networks}},10.48550/arXiv.2307.14464,1,1,1,1,1,1.0,6
+P15,SIT: {{A Bionic}} and {{Non-Linear Neuron}} for {{Spiking Neural Network}},10.48550/arXiv.2203.16117,2,2,1,2,2,2.0,11
+P16,Spike {Encoding} for {Environmental} {Sound}: {A} {Comparative} {Benchmark},10.48550/arXiv.2503.11206,1,1,1,1,1,0.0,5
+P17,Spiking Neural Networks for Nonlinear Regression of Complex Transient Signals on Sustainable Neuromorphic Processors,10.1038/s44335-024-00002-4,2,2,1,2,2,2.0,11
+P18,STAL: Spike Threshold} {Adaptive} {Learning} {Encoder} for {Classification} of {Pain}-{Related} {Biosignal} {Data},10.48550/arXiv.2407.08362,2,2,1,2,2,2.0,11
+P19,Ternary {Spike}-based {Neuromorphic} {Signal} {Processing} {System},10.48550/arXiv.2407.05310,2,2,1,2,2,2.0,11
