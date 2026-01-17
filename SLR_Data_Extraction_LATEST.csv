@@ -1,0 +1,525 @@
+Rayyan_key,My_Key,Year,Title,Abstract ,Author,Publication Title,DOI,Url,RQ1a_Encoding_Type,RQ1b_Learnable_encoding_parameters,RQ1c_Training_mechanism,RQ1d_Hybrid_Integration_Type,RQ2a_spike_wise_efficiency,RQ2b_Resource_efficiency,RQ2c_Training_Behavior,RQ2d_Model_Behavior,RQ3a_Dataset_modality,RQ3b_Input_Representation,RQ3c_Datasets_Used,RQ3d_Task_or_Domain,RQ3e_Evaluation_Metrics,RQ4a_Limitation_Category,RQ4b_Reported_Limitations,RQ4c_Research_Gaps,hardware_or_simulator,paper_type,Architecture_Type,code_availability,training_config_short,QA1. Purpose & Context,QA2. Methodological Quality,QA3. Data & Tools Transparency,QA4. Rigor & Validity,QA5. Results & Interpretation,QA6. Contribution & Credibility,Total QA Score
+rayyan-388589274,P01,2024,Accurate and {Efficient} {Event}-based {Semantic} {Segmentation} {Using} {Adaptive} {Spiking} {Encoder}-{Decoder} {Network},"Spiking Neural Networks (SNNs) have piqued researchers' interest because of their capacity to process temporal information and low power consumption. However, current state-of-the-art methods limited their biological plausibility and performance because their neurons are generally built on the simple Leaky-Integrate-and-Fire (LIF) model. Due to the high level of dynamic complexity, modern neuron models have seldom been implemented in SNN practice. In this study, we adopt the Phase Plane Analysis (PPA) technique, a technique often utilized in neurodynamics field, to integrate a recent neuron model, namely, the Izhikevich neuron. Based on the findings in the advancement of neuroscience, the Izhikevich neuron model can be biologically plausible while maintaining comparable computational cost with LIF neurons. By utilizing the adopted PPA, we have accomplished putting neurons built with the modified Izhikevich model into SNN practice, dubbed as the Standardized Izhikevich Tonic (SIT) neuron. For performance, we evaluate the suggested technique for image classification tasks in self-built LIF-and-SIT-consisted SNNs, named Hybrid Neural Network (HNN) on static MNIST, Fashion-MNIST, CIFAR-10 datasets and neuromorphic N-MNIST, CIFAR10-DVS, and DVS128 Gesture datasets. The experimental results indicate that the suggested method achieves comparable accuracy while exhibiting more biologically realistic behaviors on nearly all test datasets, demonstrating the efficiency of this novel strategy in bridging the gap between neurodynamics and SNN practice.","Zhang, Rui; Leng, Luziwei; Che, Kaiwei; Zhang, Hu; Cheng, Jie; Guo, Qinghai; Liao, Jiangxing; Cheng, Ran",Optics Express,10.48550/arXiv.2304.11857,http://arxiv.org/abs/2304.11857,learnable and adaptive encoding,"Synaptic weights
+Temporal decay parameters",Surrogate gradient,Pure SNN architecture,"Sparse spike activity
+Reduced firing rate
+Stable spike behavior
+Efficient Timesteps","Reduced computational operations 
+Multiplication-free inference (MFI)
+Energy efficiency computation
+Memory-efficient","Stable
+Smoothness 
+","Robustness
+Generalization
+Performance ",Vision,"Event streams
+Grayscale images
+RGB images","DDD17
+DSEC-Semantic
+
+
+",Semantic Segmentation task,"# Timesteps
+# Params
+MIoU
+# Add
+# Mult
+Energy
+"," Architectural Limitations
+Theoretical Limitations
+Hardware Limitations
+Energy Estimation Limitations
+Optimization Limitations","Suboptimal Sparsity/Architecture
+Lacks Deep Theoretical Justification
+Theoretical Energy Estimates Only
+No Neuromorphic Hardware Deployment
+No Real-World/Practical Deployment
+Early-Stage Architecture Search Sensitivity","Neuromorphic Hardware Deployment
+Real-World Application
+AiLIF Theoretical Justification
+SNN Sparsity Optimization","GPU \CPU
+CMOS energy model ",Architecture proposal,Spiking Encoder-Decoder Network,Promised.,"Neuron: LIF 
+Method: Direct SNN Training (Spatio-Temporal BP + Dspike)
+Optimizer: Adam (Poly LR Decay)
+Loss: Per-pixel Cross-Entropy
+Epochs: Search: 20, Retraining: 50–100
+Inference: Single Time-Step
+Input: SBT (Δt = 50ms, n = 5)",2,2,1,2,2,2.0,11
+rayyan-388589102,P02,2024,Brain-Inspired Architecture for Spiking Neural Networks,"Spiking neural networks inherently rely on the precise timing of discrete spike events for information processing. Incorporating additional bio-inspired degrees of freedom, such as trainable synaptic transmission delays and adaptive firing thresholds, is essential for fully leveraging the temporal dynamics of SNNs. Although recent methods have demonstrated the benefits of training synaptic weights and delays, both in terms of accuracy and temporal representation, these techniques typically rely on discrete-time simulations, surrogate gradient approximations, or full access to internal state variables such as membrane potentials. Such requirements limit training precision and efficiency and pose challenges for neuromorphic hardware implementation due to increased memory and I/O bandwidth demands. To overcome these challenges, we propose an analytical event-driven learning framework that computes exact loss gradients not only with respect to synaptic weights and transmission delays but also to adaptive neuronal firing thresholds. Experiments on multiple benchmarks demonstrate significant gains in accuracy (up to 7\%), timing precision, and robustness compared to existing methods.","Tang, Fengzhen; Zhang, Junhuai; Zhang, Chi; Liu, L.",IEEE Access,10.3390/biomimetics9100646,https://www.scopus.com/inward/record.uri?eid=2-s2.0-85207676241&doi=10.3390%2Fbiomimetics9100646&partnerID=40&md5=95d33efc0ee7f21bb0c689694d93de73,learnable and adaptive encoding,"Synaptic weights
+ ",Surrogate gradient,Pure SNN architecture,"Efficient Timesteps
+Reduced firing rate","Reduced computational operations
+Energy efficiency computation
+Memory-efficient","Stable
+Convergence
+Randomness reduced","Robustness
+Generalization
+Performance ",Vision,"Grayscale images
+RGB images","MNIST
+Fashion-MNIST
+CIFAR-10",Classification task,"Accuracy
+# Timesteps","Biological Limitations
+Generalizability Limitations
+Hardware Limitations","Limited exploitation of biological mechanisms
+Absence of lateral interactions and recurrent connectivity
+Evaluated only on image classification tasks
+No Neuromorphic Hardware Deployment","Extension to more biologically realistic learning rules
+Inclusion of lateral/recurrent connections
+Application to speech and time-series tasks",GPU \CPU,Architecture proposal,Convolutional Spiking Neural Network (Conv-SNN),Not Available ,"Neuron: IF, LIF 
+Random weight initialization
+Dropout = 40% in fully connected layers
+Batch normalization (BN)
+Loss: Loss function = L2 norm (MSE)
+Method: Surrogate gradient comparison
+Optimizer: Adam (sigmoid vs arctan)
+Recommended α = 4.0
+30 epochs
+MNIST: LR = 0.0002, Batch size = 128, Epochs = 60, Surrogate gradient = Atan
+Fashion-MNIST: LR = 0.0005, Batch size = 128, Epochs = 120, Surrogate gradient = Atan
+CIFAR10: LR = 0.0001, Batch size = 32, Epochs = 140, Surrogate gradient = Sigmoid",2,1,1,1,2,1.0,8
+rayyan-378478369,P03,2024,Brain-Inspired Spiking Neural Networks in {{Engineering Mechanics}}: A New Physics-Based Self-Learning Framework for Sustainable {{Finite Element}} Analysis,"Abstract             Human visual neurons rely on event-driven, energy-efficient spikes for communication, while silicon image sensors do not. The energy-budget mismatch between biological systems and machine vision technology has inspired the development of artificial visual neurons for use in spiking neural network (SNN). However, the lack of multiplexed data coding schemes reduces the ability of artificial visual neurons in SNN to emulate the visual perception ability of biological systems. Here, we present an artificial visual spiking neuron that enables rate and temporal fusion (RTF) coding of external visual information. The artificial neuron can code visual information at different spiking frequencies (rate coding) and enables precise and energy-efficient time-to-first-spike (TTFS) coding. This multiplexed sensory coding scheme could improve the computing capability and efficacy of artificial visual neurons. A hardware-based SNN with the RTF coding scheme exhibits good consistency with real-world ground truth data and achieves highly accurate steering and speed predictions for self-driving vehicles in complex conditions. The multiplexed RTF coding scheme demonstrates the feasibility of developing highly efficient spike-based neuromorphic hardware.","Tandale, Saurabh Balkrishna; Stoffel, Marcus",Neurocomputing,10.1007/s00366-024-01967-3,,learnable and adaptive encoding,"Synaptic weights
+Temporal decay parameters
+Membrane thresholds",Surrogate gradient,Hybrid ANN–SNN architecture,"Sparse spike activity
+Reduced firing rate","Energy efficiency computation
+Memory-efficient
+Faster infrence","Convergence
+Higher simulation speed
+Smoothness","Robustness
+Generalization
+Performance ",Real Numbers,Real Numbers,Custom,Regression task,"Root Mean Squared Error (RMSE)
+Energy
+Simulation speed","Accuracy Limitations
+Energy Estimation Limitations
+Generalizability Limitations
+Hardware Limitations
+Methodological Limitations","No on-chip training for Xylo-Av2
+Energy estimates from KerasSpiking are conjectural and based on simplifying assumptions
+Low number of online training steps can  introduce errors
+Model evaluated on specific material models","Extension to broader material laws
+Large-scale 3D problems
+Full neuromorphic FEM solvers
+Real experimental validation.
+Brain-inspired neural network-enhanced FEM for mechanical BVPs was previously unavailable in literature
+Limited application of SNNs in FEM solvers","Xylo-Av2
+KerasSpiking
+GPU \CPU",Architecture proposal,Hybrid Recurrent Spiking Neural Network (SNN),Not Available ,"Neuron: LIF 
+Optimizer: Adam
+Batch Size: 32
+Initial Learning Rate: 1e-4
+Maximum Learning Rate: 1e-3
+Epochs (Pre-training): <=4000
+Learning Rate Schedule: Cyclical, Triangular Mode
+Activation Function (Output Layer): Soft Plus
+Pre-training Phase: Combination of data-driven Ld and physics-based Lp loss functions.
+Online Training: Physics-based Lp only",2,2,2,2,2,1.0,11
+rayyan-388589111,P04,2024,"Diagnostic Biomarker Discovery from Brain {{EEG}} Data Using {{LSTM}}, Reservoir-{{SNN}}, and {{NeuCube}} Methods in a Pilot Study Comparing Epilepsy and Migraine","Abstract             The present study aims to develop a sustainable framework employing brain-inspired neural networks for solving boundary value problems in Engineering Mechanics. Spiking neural networks, known as the third generation of artificial neural networks, are proposed for physics-based artificial intelligence. Accompanied by a new pseudo-explicit integration scheme based on spiking recurrent neural networks leading to a spike-based pseudo explicit integration scheme, the underlying differential equations are solved with a physics-informed strategy. We propose additionally a third-generation spike-based Legendre Memory Unit that handles large sequences. These third-generation networks can be implemented on the coming-of-age neuromorphic hardware resulting in less energy and memory consumption. The proposed framework, although implicit, is viewed as a pseudo-explicit scheme since it requires almost no or fewer online training steps to achieve a converged solution even for unseen loading sequences. The proposed framework is deployed in a Finite Element solver for plate structures undergoing cyclic loading and a Xylo-Av2 SynSense neuromorphic chip is used to assess its energy performance. An acceleration of more than 40\% when compared to classical Finite Element Method simulations and the capability of online training is observed. We also see a reduction in energy consumption down to the thousandth order.","Saeedinia, Samaneh Alsadat; Jahed-Motlagh, Mohammad Reza; Tafakhori, Abbas; Kasabov, Nikola Kirilov",,10.1038/s41598-024-60996-6,https://www.nature.com/articles/s41598-024-60996-6,Adaptive encoding,Adaptive (data-driven) parameters,Local learning rule,Pure SNN architecture,"Sparse spike activity
+Efficient Timesteps","Reduced computational operations
+Energy efficiency computation
+Memory-efficient
+Faster infrence",Convergence,"Robustness
+Performance ",Biosignals,Electroencephalogram (EEG),Custom,"Classification task
+Biomarker discovery","Accuracy
+Neuron firing patterns
+Execution time","Accuracy Limitations
+Computational Constraints
+Generalizability Limitations
+Hardware Limitations","Small and imbalanced dataset
+Overfitting with large reservoirs
+Lack of large-scale validation
+No neuromorphic hardware deployment","Validation on larger
+Multi-center datasets
+Early prediction of disease onset;
+Deployment on neuromorphic hardware
+Longitudinal EEG analysis","MATLAB simulation
+GPU \CPU","Architecture proposal
+Novel Encoding Mechanism",Reservoir-based SNN,Available,"Neuron: Izhikevich
+spiking neurons (70% excitatory / 30% inhibitory)
+Pipeline: raw EEG → adaptive Online Spike Encoding → partially observed reservoir SNN → firing-rate classifier
+Learning: hybrid local learning (supervised ReSuMe for observed neurons + unsupervised STDP for hidden neurons)
+Classifier calibration: firing-rate threshold trained on 70% of data
+Evaluation: leave-one-out cross-validation",2,1,1,1,2,2.0,9
+rayyan-378477363,P05,2022,DTS-SNN: Spiking Neural Networks With Dynamic Time-Surfaces,"The success of deep networks and recent industry involvement in brain-inspired computing is igniting a widespread interest in neuromorphic hardware that emulates the biological processes of the brain on an electronic substrate. This review explores interdisciplinary approaches anchored in machine learning theory that enable the applicability of neuromorphic technologies to real-world, human-centric tasks. We find that (1) recent work in binary deep networks and approximate gradient descent learning are strikingly compatible with a neuromorphic substrate; (2) where real-time adaptability and autonomy are necessary, neuromorphic technologies can achieve significant advantages over main-stream ones; and (3) challenges in memory technologies, compounded by a tradition of bottom-up approaches in the field, block the road to major breakthroughs. We suggest that a neuromorphic learning framework, tuned specifically for the spatial and temporal constraints of the neuromorphic substrate, will help guiding hardware algorithm co-design and deploying neuromorphic hardware for proactive learning of real-world data.","Yoo, Donghyung; Jeong, Doo Seok",,10.1109/ACCESS.2022.3209671,,learnable and adaptive encoding,Trainable DTS aggregation weights ai,Surrogate gradient,Pure SNN architecture,"Activity-driven suppression
+Activity-driven responsiveness
+Efficient Timesteps","Reduced computational operations
+Energy efficiency computation
+Memory-efficient",Stable,"Performance 
+Robustness","Vision
+Audio",Event streams,"DVS128 Gesture
+Spiking Heidelberg Dataset (SHD)
+N-Cars","Classification task
+Action/Gesture Recognition","Accuracy
+# Params
+# Ops
+# Timesteps","Generalizability Limitations
+Hardware Limitations
+Accuracy Limitations","Kernel time constants selected manually
+Evaluation limited to simple FC SNN
+No systematic study of kernel behavior across tasks
+No deployment on real neuromorphic hardware
+Slight accuracy drop compared to top convolution-based SNNs despite major efficiency gains.","Fixed (non-learnable) temporal kernels, motivating learnable or adaptive kernel designs.
+Extension to deeper SNN architectures and neuromorphic tasks beyond classification.
+Lack of hardware-level neuromorphic validation.",GPU \CPU,Novel Encoding Mechanism,DTS-SNN (Dynamic Time-Surfaces Spiking Neural Network),Available,"Neuron: LIF
+Optimizer: Adam (no weight decay or LR scheduling)
+Timesteps: 300 (Gesture), 500 (SHD), 100 (N-Cars) 
+Batch sizes: 16, 64, or 256 depending on dataset",2,2,1,2,2,1.0,10
+rayyan-388589278,P06,2025,Efficient {ANN}-{SNN} {Conversion} with {Error} {Compensation} {Learning},"The brain-inspired Spiking neural networks (SNN) claim to present advantages for visual classification tasks in terms of energy efficiency and inherent robustness. In this work, we explore the impact on network inter-layer sparsity through neural coding schemes and the intrinsic structural parameters of Leaky Integrate-and-Fire (LIF) neurons, which can be a candidate metric for performance evaluation. Towards this, we perform a comparative study of four critical neural coding schemes: rate coding (poisson coding), latency coding, phase coding, and direct coding, as well as 6 LIF neuron intrinsic parameter options for a total of 24 combined parameter schemes. Specifically, the models were trained using a supervised training algorithm with a surrogate gradient, and two adversarial attacks, Fast Gradient Sign Method (FGSM) and Projected Gradient Descent (PGD) were applied on a CIFAR10 dataset. We identified the sources of interlayer sparsity in SNN, and quantitatively analyzed the differences in sparsity caused by coding schemes, neuron leakage factors and thresholds. Various aspects of network performance were thoroughly considered in this paper, including inference accuracy, adversarial robustness, and energy efficiency. Our results show that latency coding is the optimum choice in achieving the highest adversarial robustness and energy efficient against low intensity attacks, while rate coding offers the best adversarial robustness against medium and high intensity attacks. The maximum deviations of robustness and efficiency between different coding schemes are 9.35% in VGG5 and 13.59% in VGG9. Increasing the sparsity of spike activity by improving the threshold can bring a short-lived adversarial robustness sweet spot, while excessive sparsity due to changes in threshold and leakage can instead reduce the adversarial robustness. The study reveals the advantages and disadvantages, and design space of SNN in various dimensions, allowing researchers to frame their neuromorphic systems in terms of the coding methods, neuron inherent structure, and model learning capabilities.","Liu, Chang; Shen, Jiangrong; Ran, Xuming; Xu, Mingkun; Xu, Qi; Xu, Yi; Pan, Gang",,10.48550/arXiv.2506.01968,http://arxiv.org/abs/2506.01968,learnable encoding,"Learnable clipping threshold
+Dual-threshold neuron parameters
+Membrane potential initialization value",ANN-to-SNN Conversion Method,ANN-to-SNN conversion,"Reduced firing rate
+Efficient Timesteps","Energy efficiency computation
+Reduced computational operations",Stable,"Performance 
+Inference
+Robustness",Vision,"Grayscale images
+RGB images","CIFAR-10
+CIFAR-100
+ImageNet",Classification task,"Accuracy
+# Timesteps
+Energy","Energy Estimation Limitations
+Generalizability Limitations","No real neuromorphic hardware deployment (simulation-based)
+Energy evaluated via analytical SOP/FLOP estimates
+Method validated only on image classification","Extension to non-vision modalities
+On-chip neuromorphic validation
+Exploration beyond rate-based conversion",GPU \CPU,Conversion framework,Converted deep CNN-based SNN,Not Available ,"Neuron: IF
+ANN trained with quantized clip-floor-shift activation (learnable λ, L=4–8 recommended)
+Inference at T = 2–16 time steps",2,2,1,1,1,1.0,8
+rayyan-378478131,P07,2022,Encoding Event-Based Data With a Hybrid SNN Guided Variational Auto-encoder in Neuromorphic Hardware - Proceedings of the 2022 Annual Neuro-Inspired Computational Elements Conference,"Convolution helps spiking neural networks (SNNs) capture the spatio-temporal structures of neuromorphic (event) data as evident in the convolution-based SNNs (C-SNNs) with the state-of-the-art classification-accuracies on various datasets. However, the efficacy aside, the efficiency of C-SNN is questionable. In this regard, we propose SNNs with novel trainable dynamic time-surfaces (DTS-SNNs) as efficient alternatives to convolution. The novel dynamic time-surface proposed in this work features its high responsiveness to moving objects given the use of the zero-sum temporal kernel that is motivated by the simple cells’ receptive fields in the early stage visual pathway. We evaluated the performance and computational complexity of our DTS-SNNs on three real-world event-based datasets (DVS128 Gesture, Spiking Heidelberg dataset, N-Cars). The results highlight high classification accuracies and significant improvements in computational efficiency, e.g., merely 1.51% behind of the state-of-the-art result on DVS128 Gesture but a  $\times 18$  improvement in efficiency. The code is available online (https://github.com/dooseokjeong/DTS-SNN).","Stewart, Kenneth; Danielescu, Andreea; Shea, Timothy; Neftci, Emre",Nature Communications,10.1145/3517343.3517372,https://doi.org/10.1145/3517343.3517372,learnable encoding,"Synaptic weights
+Latent parameters",Surrogate gradient,Hybrid ANN–SNN architecture,"Sparse spike activity
+Activity-driven suppression",Energy efficiency computation,Hardware-induced performance degradation,"Performance 
+Robustness",Vision,Event streams,"NMNIST
+IBM DVSGesture
+Custom",Classification task,"Accuracy
+Qualitative latent-space evaluation (T-SNE)","Hardware Limitations
+Accuracy Limitations
+Generalizability Limitations","Hardware performance degradation
+Precision-sensitive latent disentanglement
+Partial hardware deployment
+Class confusion","Evaluation on higher-precision neuromorphic hardware
+Extension to more complex tasks and larger class counts
+Missing adaptive-encoding comparisons
+Limited scalability analysis
+No quantitative energy benchmarks 
+Improved on-chip learning algorithms","GPU \CPU
+Loihi",Novel Algorithmic Framework,Hybrid Guided Variational Autoencoder with SNN encoder,Not Available ,"Neuron: LIF
+(∆t = 1 ms)
+Surrogate gradients (fast sigmoid)
+Truncated BPTT (100 ms)
+VAE loss + excitation/inhibition losses
+GPU training with PyTorch
+Loihi deployment using SLAYER with quantized spiking μ, Σ",2,2,1,1,2,,8
+rayyan-378476879,P08,2022,Enhancing spiking neural networks with hybrid top-down attention,,"Liu, Faqiang; Zhao, Rong",Nature Communications,10.3389/fnins.2022.949142,https://www.scopus.com/inward/record.uri?eid=2-s2.0-85137892057&doi=10.3389%2Ffnins.2022.949142&partnerID=40&md5=1d34793667e99c14b7268a2cc2d1602d,learnable and adaptive encoding,"Synaptic weights
+Membrane thresholds
+Temporal decay parameters",Surrogate gradient,Hybrid ANN–SNN architecture,"Activity-driven suppression
+Reduced firing rate
+Sparse spike activity","Reduced computational operations
+Energy efficiency computation
+MAC operations reduction","Stable
+Efficiency","Performance 
+Robustness
+Inference
+Generalization",Vision,"Grayscale images
+RGB images
+Event streams","CIFAR-10
+CIFAR-100
+MNIST
+N-MNIST",Classification task,"Accuracy
+Adversarial robustness (PGD under L∞ constraint)
+Firing rate 
+# MAC
+# Params
+# Timesteps","Hardware Limitations
+Architectural Limitations
+Methodological Limitations","Additional ANN introduces extra parameters and computation
+Attention applied mainly to encoder layer (limited exploration of deeper feedback)
+No direct deployment or benchmarking on neuromorphic hardware
+","End-to-end deployment on neuromorphic chips 
+Extension to non-vision modalities 
+More complex or multi-level attention mechanisms
+",GPU \CPU,Architecture proposal,Hybrid ANN–SNN (Convolutional SNN with ANN-based top-down attention),"Available
+","Neuron: LIF
+SGD with momentum 0.9
+Batch size 200
+Initial LR 0.1 with warm-up
+Time step Td = 1 ms
+K = 6 (static) / 10 (neuromorphic)
+Attention period Tf = 2Td
+Temperature-scheduled sigmoid (max Te = 6)
+Loss weight α ∈ {0.01, 0.1}
+Sparsity coefficients β = 0.40, γ = 0.51.",2,1,2,1,2,2.0,10
+rayyan-388589281,P09,2023,Event-{Enhanced} {Multi}-{Modal} {Spiking} {Neural} {Network} for {Dynamic} {Obstacle} {Avoidance} - Proceedings of the 31st {ACM} {International} {Conference} on {Multimedia},,"Wang, Yang; Dong, Bo; Zhang, Yuji; Zhou, Yunduo; Mei, Haiyang; Wei, Ziqi; Yang, Xin",npj Unconventional Computing,10.1145/3581783.3612147,http://arxiv.org/abs/2310.02361,learnable and adaptive encoding,"Synaptic weights
+Latent parameters
+Membrane thresholds",Surrogate gradient,Hybrid ANN–SNN architecture,Sparse spike activity,"Reduced computational operations
+Energy efficiency computation
+Memory-efficient
+","Stable
+Convergence
+Faster training","Performance 
+Robustness
+Inference
+Generalization",Multimodal,"Event streams
+Laser scans",Custom,Reinforcement learning task,"Success rate
+# Add
+# Mult","Hardware Limitations
+Generalizability Limitations","Evaluated only in simulation
+No real-robot deployment
+Need more real challenging scenes","Lack of real-world neuromorphic deployment
+No UAV or subterranean robot validation
+Absence of energy benchmarks on hardware","Gazebo simulator+AA19
+GPU \CPU",Architecture proposal,Spiking Actor–Critic Architecture,Not Available ,"Neuron: LIF
+DDPG (Deep Deterministic Policy Gradient (DDPG))
+Batch size 256
+Learning rate 1e-4
+MFDM-LT timestep = 5
+Laser 20 Hz, DVS 100 Hz
+Current decay 0.5, voltage decay 0.75
+Population size = 10",2,2,1,2,2,2.0,11
+rayyan-388589103,P10,2023,Feasibility study on the application of a spiking neural network in myoelectric control systems,"As the representatives of brain-inspired models at the neuronal level, spiking neural networks (SNNs) have shown great promise in processing spatiotemporal information with intrinsic temporal dynamics. SNNs are expected to further improve their robustness and computing efficiency by introducing top-down attention at the architectural level, which is crucial for the human brain to support advanced intelligence. However, this attempt encounters difficulties in optimizing the attention in SNNs largely due to the lack of annotations. Here, we develop a hybrid network model with a top-down attention mechanism (HTDA) by incorporating an artificial neural network (ANN) to generate attention maps based on the features extracted by a feedforward SNN. The attention map is then used to modulate the encoding layer of the SNN so that it focuses on the most informative sensory input. To facilitate direct learning of attention maps and avoid labor-intensive annotations, we propose a general principle and a corresponding weakly-supervised objective, which promotes the HTDA model to utilize an integral and small subset of the input to give accurate predictions. On this basis, the ANN and the SNN can be jointly optimized by surrogate gradient descent in an end-to-end manner. We comprehensively evaluated the HTDA model on object recognition tasks, which demonstrates strong robustness to adversarial noise, high computing efficiency, and good interpretability. On the widely-adopted CIFAR-10, CIFAR-100, and MNIST benchmarks, the HTDA model reduces firing rates by up to 50% and improves adversarial robustness by up to 10% with comparable or better accuracy compared with the state-of-the-art SNNs. The HTDA model is also verified on dynamic neuromorphic datasets and achieves consistent improvements. This study provides a new way to boost the performance of SNNs by employing a hybrid top-down attention mechanism. © 2022 Elsevier B.V., All rights reserved.","Sun, Antong; Chen, Xiang; Xu, Mengjuan; Zhang, Xu; Chen, Xun",Nature Communications,10.3389/fnins.2023.1174760,https://www.scopus.com/inward/record.uri?eid=2-s2.0-85163610018&doi=10.3389%2Ffnins.2023.1174760&partnerID=40&md5=53c52d2393d8869401e9bfcc8cc1524c,Adaptive encoding,Adaptive (data-driven) parameters,Surrogate gradient,Pure SNN architecture,"Sparse spike activity
+Activity-driven suppression","Reduced computational operations
+Low latency
+AC-dominant computation
+Energy efficiency computation","Stable
+Faster training","Inference
+Robustness",Biosignals,Event streams,Custom,"Classification task
+Action/Gesture Recognition","Accuracy
+Energy
+# Add
+# Mult
+Inference latency
+Spike release rate (SRR)
+Statistical significance (ANOVA)","Methodological Limitations
+Generalizability Limitations
+Hardware Limitations
+Architectural Limitations
+Accuracy Limitations","Single encoding method and neuron model
+Only steady-state EMG used
+Evaluated on limited datasets
+Lower accuracy than some advanced DNN approaches
+ower/latency are algorithmic estimates only
+No real neuromorphic hardware deployment","Exploration of alternative encoding schemes
+Evaluation on public datasets
+Inclusion of transition-phase EMG
+Integration of advanced training strategies
+On-chip neuromorphic deployment",GPU \CPU,Feasibility study,SNN,Not Available ,"Neuron: LIF
+Optimizer: Adam
+Learning rate: 0.1, 0.01
+Batch size: 1/8 of training set
+Loss: cross-entropy
+Integration window: T=100
+θ=0.6
+Vthr2=10.",1,1,1,1,2,1.0,7
+rayyan-378476870,P11,2023,Hybrid photonic deep convolutional residual spiking neural networks for text classification,"Spiking neural networks (SNNs) underlie low-power, fault-tolerant information processing in the brain and could constitute a power-efficient alternative to conventional deep neural networks when implemented on suitable neuromorphic hardware accelerators. However, instantiating SNNs that solve complex computational tasks in-silico remains a significant challenge. Surrogate gradient (SG) techniques have emerged as a standard solution for training SNNs end-to-end. Still, their success depends on synaptic weight initialization, similar to conventional artificial neural networks (ANNs). Yet, unlike in the case of ANNs, it remains elusive what constitutes a good initial state for an SNN. Here, we develop a general initialization strategy for SNNs inspired by the fluctuation-driven regime commonly observed in the brain. Specifically, we derive practical solutions for data-dependent weight initialization that ensure fluctuation-driven firing in the widely used leaky integrate-and-fire neurons. We empirically show that SNNs initialized following our strategy exhibit superior learning performance when trained with SGs. These findings generalize across several datasets and SNN architectures, including fully connected, deep convolutional, recurrent, and more biologically plausible SNNs obeying Dale’s law. Thus fluctuation-driven initialization provides a practical, versatile, and easy-to-implement strategy for improving SNN training performance on diverse tasks in neuromorphic engineering and computational neuroscience. © 2025 Elsevier B.V., All rights reserved.","Zhang, Yahui; Xiang, Shuiying; Jiang, Shuqing; Han, Yanan; Guo, Xingxing; Zheng, Ling; Shi, Yuechun; Hao, Yue",Neuromorphic Computing and Engineering,10.1364/OE.497218,https://www.scopus.com/inward/record.uri?eid=2-s2.0-85171286173&doi=10.1364%2FOE.497218&partnerID=40&md5=d082bfb9c3b9bf1049e1e70bccf94a14,learnable encoding,Synaptic weights,Surrogate gradient,"Hybrid ANN–SNN architecture
+ANN-to-SNN conversion",Efficient Timesteps,Energy efficiency computation,"Convergence
+Performance sensitive to time-step",Inference,Texts,Word embeddings,"MR
+AG News
+IMDB
+Yelp review polarity",Classification task,"Accuracy
+# Timesteps
+","Generalizability Limitations
+Hardware Limitations
+Energy Estimation Limitations","Energy efficiency discussed conceptually without measured neuromorphic power metrics
+Photonic SNN limited to classifier stage
+Evaluation limited to text classification benchmarks
+No direct deployment or benchmarking on neuromorphic hardware","End-to-end photonic SNN training
+Deeper photonic integration beyond classifier
+Broader NLP tasks and multilingual datasets",GPU \CPU,Architecture proposal,Deep convolutional residual spiking neural network (DCRSNN),Not Available,"Neuron: LIF
+surrogate gradient (arctan/softsign/sigmoid)
+Adam optimizer (lr = 0.001)
+Batch size 256
+Time window T = 1–16 ms
+50 epochs",1,1,1,1,1,1.0,6
+rayyan-378476869,P12,2023,Hybrid Spiking Fully Convolutional Neural Network for Semantic Segmentation,"Abstract             Communication by rare, binary spikes is a key factor for the energy efficiency of biological brains. However, it is harder to train biologically-inspired spiking neural networks than artificial neural networks. This is puzzling given that theoretical results provide exact mapping algorithms from artificial to spiking neural networks with time-to-first-spike coding. In this paper we analyze in theory and simulation the learning dynamics of time-to-first-spike-networks and identify a specific instance of the vanishing-or-exploding gradient problem. While two choices of spiking neural network mappings solve this problem at initialization, only the one with a constant slope of the neuron membrane potential at threshold guarantees the equivalence of the training trajectory between spiking and artificial neural networks with rectified linear units. For specific image classification architectures comprising feed-forward dense or convolutional layers, we demonstrate that deep spiking neural network models can be effectively trained from scratch on MNIST and Fashion-MNIST datasets, or fine-tuned on large-scale datasets, such as CIFAR10,~CIFAR100 and PLACES365, to achieve the exact same performance as that of artificial neural networks, surpassing previous spiking neural networks. Our approach accomplishes high-performance classification with less than 0.3 spikes per neuron, lending itself for an energy-efficient implementation. We also show that fine-tuning spiking neural networks with our robust gradient descent algorithm enables their optimization for hardware implementations with low latency and resilience to noise and quantization.","Zhang, Tao; Xiang, Shuiying; Liu, Wenzhuo; Han, Yanan; Guo, Xingxing; Hao, Yue",Frontiers in Neuroscience,10.3390/electronics12173565,https://www.scopus.com/inward/record.uri?eid=2-s2.0-85170580778&doi=10.3390%2Felectronics12173565&partnerID=40&md5=beecd9f2e651ee9ddb9cb975c3a8d73e,learnable encoding,Synaptic weights,Surrogate gradient,Hybrid ANN–SNN architecture,,"AC-dominant computation
+Energy efficiency computation","Stable
+Performance sensitive to time-step",Performance,Vision,RGB images,"VOC2012
+COCO2017
+DRIVE
+Cityscapes",Semantic Segmentation task,"MIoU
+Pixel Acc
+# Params
+Precision
+Recall
+F1
+Energy","Training scalability Limitations
+Accuracy Limitations
+Hardware Limitations
+Energy Estimation Limitations","Performance inferior to CNNs
+Sensitive to time-step selection
+Long training time
+Lack of pretrained SNN models
+Energy based on theoretical estimation
+No direct deployment or benchmarking on neuromorphic hardware","Lack of pretrained SNN backbones
+Limited exploration of deeper adaptive encoding
+No real neuromorphic hardware deployment","GPU \CPU
+CMOS energy model ",Architecture proposal,Hybrid spiking fully convolutional neural network (SFCNN),Not Available,"Neuron: IF
+Time window=6
+Simulation time step=1 ms
+Adam optimizer
+LR=0.0005
+Batch size=8
+Cosine LR scheduler
+Softsign surrogate
+Cross-entropy loss",1,1,2,1,2,1.0,8
+rayyan-378478374,P13,2025,NeuBridge: bridging quantized activations and spiking neurons for ANN-SNN conversion,"Abstract             Spiking neural networks (SNNs) take inspiration from the brain to enable energy-efficient computations. Since the advent of Transformers, SNNs have struggled to compete with artificial networks on modern sequential tasks, as they inherit limitations from recurrent neural networks (RNNs), with the added challenge of training with non-differentiable binary spiking activations. However, a recent renewed interest in efficient alternatives to Transformers has given rise to state-of-the-art recurrent architectures named state space models (SSMs). This work systematically investigates, for the first time, the intersection of state-of-the-art SSMs with SNNs for long-range sequence modelling. Results suggest that SSM-based SNNs can outperform the Transformer on all tasks of a well-established long-range sequence modelling benchmark. It is also shown that SSM-based SNNs can outperform current state-of-the-art SNNs with fewer parameters on sequential image classification. Finally, a novel feature mixing layer is introduced, improving SNN accuracy while challenging assumptions about the role of binary activations in SNNs. This work paves the way for deploying powerful SSM-based architectures, such as large language models, to neuromorphic hardware for energy-efficient long-range sequence modelling.","Yang, Yuchen; Liu, Jingcheng; Yu, Chengting; Yang, Chengyi; Wang, Gaoang; Wang, Aili",,10.1088/2634-4386/ade183,https://www.scopus.com/inward/record.uri?eid=2-s2.0-105009129892&doi=10.1088%2F2634-4386%2Fade183&partnerID=40&md5=b67fe63ab11494a23713296aaed1377a,learnable and adaptive encoding,"Synaptic weights
+Temporal decay parameters",ANN-to-SNN Conversion Method,ANN-to-SNN conversion,Reduced spike count,"Low latency
+AC-dominant computation
+Energy efficiency computation",Stable,"Inference
+Performance",Vision,"Grayscale images
+RGB images","CIFAR-10
+ImageNet",Classification task,"Accuracy
+# Add
+# Mult
+# Timesteps
+Energy","Hardware Limitations
+Energy Estimation Limitations
+Generalizability Limitations
+Methodological Limitations","No physical neuromorphic chip deployment
+Energy estimated analytically
+Evaluation limited to vision benchmarks
+Comparison with adaptive-at-runtime encoding mechanisms2","Lack of real neuromorphic hardware validation
+No evaluation on non-vision modalities
+Absence of on-chip learning",GPU \CPU,Novel Algorithmic Framework,Converted spiking neural network (LIF-based),Available,"Neuron: LIF
+Quantization-aware ANN training
+SGD (momentum 0.9)
+Cross-entropy loss
+Quantization-aware training
+Trainable τ ∈ [1, 4]
+ANN trained first
+SNN obtained via direct conversion",2,2,1,1,1,2.0,9
+rayyan-378478161,P14,2023,Single {{Channel Speech Enhancement Using U-Net Spiking Neural Networks}},"Spiking neural networks (SNNs) offer a promising avenue for energy-efficient computations on neuromorphic hardware, leveraging the unique advantages of spike-based signaling. Despite their potential, SNNs often lag behind artificial neural networks (ANNs) in performance, mainly due to the complexity of effectively translating ANN activation values into the time domain spikes. This challenge arises due to the quantization and unevenness errors that occur when mapping continuous activations to discrete spikes and irregular spike timing. This paper introduces NeuBridge, an innovative ANN-SNN conversion method that utilize adaptive temporal coding to significantly reduce the number of required time steps without compromising accuracy. NeuBridge addresses the errors by employing a decode-encode neuron and adaptive temporal coding, effectively bridging the performance gap between ANNs and SNNs. By establishing an equivalence between quantized ANNs and SNNs and optimizing the temporal coding process, we improve SNN performance with as few as 2 time steps. Empirical evaluations on CIFAR-10 and ImageNet datasets demonstrate that NeuBridge consistently performs better than existing conversion methods in both accuracy and efficiency, achieving high performance within just 3 time steps. NeuBridge code is available at: https://github.com/Intelli-Chip-Lab/NeuBridge. © 2025 Elsevier B.V., All rights reserved.","Riahi, Abir; Plourde, {\'E}ric",Complexity,10.48550/arXiv.2307.14464,,learnable encoding,"Synaptic weights
+Temporal decay parameters
+Membrane thresholds",Surrogate gradient,Hybrid ANN–SNN architecture,"Sparse spike activity
+Activity-driven suppression","Energy efficiency computation
+MAC operations reduction",Stable  ,"Inference
+Performance
+Robustness",Audio,Time-frequency representation,Voice Bank Corpus (VCTK) + DEMAND noise dataset,"Regression task
+Speech enhancement","Perceptual Evaluation of Speech Quality (PESQ)
+Short-Time Objective Intelligibility (STOI)
+Deep Noise Suppression Mean Opinion Score (DNSMOS: SIG, BAK, OVRL)","Generalizability Limitations
+Hardware Limitations
+Architectural Limitations
+Methodological Limitations","No physical neuromorphic chip deployment
+Performance is evaluated using a fixed encoding strategy (direct input encoding).
+Only a single neuron model (LIF) is considered.
+A single loss function (log-spectral distance, LSD) is used.
+The approach relies exclusively on a direct-mapping strategy (no masking-based formulation).
+No masking-based SNN variant is explored or compared.
+No neuron model diversity (e.g., IF, adaptive LIF, SRM) is investigated.","Extension to alternative encoding strategies (e.g., masking, adaptive encoders)
+Other neuron models
+Different loss functions
+Broader speech enhancement scenarios.",GPU \CPU,Architecture proposal,U-Net-based Spiking Neural Network,Not Available ,"Neuron: LIF
+Adam (lr=0.002, β1=0.5, β2=0.9)
+Batch size 32
+60 epochs
+Surrogate gradient (ArcTan)
+Convolution weights ~𝒩(0,0.2)
+Decay strengths & thresholds initialized from normal distributions.",1,1,1,1,1,1.0,6
+rayyan-378478320,P15,2022,SIT: {{A Bionic}} and {{Non-Linear Neuron}} for {{Spiking Neural Network}},"Artificial neural networks (ANNs) have demonstrated outstanding performance in numerous tasks, but deployment in resource-constrained environments remains a challenge due to their high computational and memory requirements. Spiking neural networks (SNNs) operate through discrete spike events and offer superior energy efficiency, providing a bio-inspired alternative. However, current ANN-to-SNN conversion often results in significant accuracy loss and increased inference time due to conversion errors such as clipping, quantization, and uneven activation. This paper proposes a novel ANN-to-SNN conversion framework based on error compensation learning. We introduce a learnable threshold clipping function, dual-threshold neurons, and an optimized membrane potential initialization strategy to mitigate the conversion error. Together, these techniques address the clipping error through adaptive thresholds, dynamically reduce the quantization error through dual-threshold neurons, and minimize the non-uniformity error by effectively managing the membrane potential. Experimental results on CIFAR-10, CIFAR-100, ImageNet datasets show that our method achieves high-precision and ultra-low latency among existing conversion methods. Using only two time steps, our method significantly reduces the inference time while maintains competitive accuracy of 94.75\% on CIFAR-10 dataset under ResNet-18 structure. This research promotes the practical application of SNNs on low-power hardware, making efficient real-time processing possible.","Jin, Cheng; Zhu, Rui-Jie; Wu, Xiao; Deng, Liang-Jian",Biomimetics,10.48550/arXiv.2203.16117,,learnable encoding,Synaptic weights,Surrogate gradient,Hybrid ANN–SNN architecture,,,Faster training,,Vision,"Grayscale images
+RGB images
+Event streams","MNIST
+Fashion-MNIST
+CIFAR-10
+N-MNIS
+ CIFAR10-DVS
+DVS128 Gesture","Classification task
+Action/Gesture Recognition",Accuracy,"Methodological Limitations
+Interpretability Limitations
+Energy Estimation Limitations
+Hardware Limitations","PPA-based standardization quantitatively resolves only parameter b
+Other Izhikevich parameters rely on empirical or neuroscience heuristics
+No neuromorphic hardware deployment or energy evaluation.","Fully learnable or adaptive neuron parameterization beyond b
+Hardware-level neuromorphic validation (e.g., Loihi)
+Explicit energy/spike-efficiency benchmarking
+Extension beyond vision-classification tasks",GPU \CPU,Architecture proposal,Hybrid CNN-SNN,Not Available ,"Neuron: Izhikevich
+Surrogate-gradient training
+Adam (lr = 0.01) with cosine annealing
+Batch = 16
+τ = 2
+simulation steps T = 8–20 depending on dataset
+SIT neurons inserted into selected convolutional layers.",2,2,1,2,2,2.0,11
+rayyan-388589280,P16,2025,Spike {Encoding} for {Environmental} {Sound}: {A} {Comparative} {Benchmark},"Despite the maturity and availability of speech recognition systems, there are few available spiking speech recognition tasks that can be implemented with current neuromorphic systems. The methods used previously to generate spiking speech data are not capable of encoding speech in real-time or encoding very large modern speech datasets efficiently for input to neuromorphic processors. The ability to efficiently encode audio data to spikes will enable a wider variety of spiking audio datasets to be available and can also enable algorithmic development of real-time neuromorphic automatic speech recognition systems. Therefore, we developed speech2spikes, a simple and efficient audio processing pipeline that encodes recorded audio into spikes and is suitable for real-time operation with low-power neuromorphic processors. To demonstrate the efficacy of our method for audio to spike encoding we show that a small feed-forward spiking neural network trained on data generated with the pipeline achieves accuracy on the Google Speech Commands recognition task, exceeding the state-of-the art set by Spiking Speech Commands, a prior spiking encoding of the Google Speech Commands dataset, by over 10\%. We also demonstrate a proof-of-concept real-time neuromorphic automatic speech recognition system using audio encoded with speech2spikes streamed to an Intel Loihi neuromorphic research processor.","Larroza, Andres; Naranjo-Alcazar, Javier; Ortiz, Vicent; Zuccarello, Pedro",IEEE Access,10.48550/arXiv.2503.11206,http://arxiv.org/abs/2503.11206,Adaptive encoding,Adaptive (data-driven) parameters,Surrogate gradient,Pure SNN architecture,"Reduced firing rate
+Reduced spike count",Energy efficiency computation,"Stable
+",,Audio,128-band Mel-spectrograms (20–20 kHz),"ESC-10
+UrbanSound8K
+TAU Urban Acoustic Scenes (TAU-3Class)","Classification task
+Regression task
+Signal reconstruction","Error in decibels (ERRdB)
+Signal-to-noise ratio (SNR)
+Accuracy
+Firing rate 
+Encoding time
+Memory usage","Methodological Limitations
+Architectural Limitations
+Accuracy Limitations
+Hardware Limitations","All SNN results remain below ANN baselines
+No encoder–architecture co-design
+Fixed SNN architecture not optimized for audio 
+No neuromorphic hardware deployment","Lack of learnable or gradient-trained spike encoders for environmental audio
+Need for encoder–architecture co-design
+Evaluation on neuromorphic hardware
+Exploration of attention-based SNNs paired with efficient encoders",GPU \CPU,Comparative Benchmark Study,Pure SNN classifier with external spike encoder,Not Available ,"Neuron: LIF
+Mel-spectrogram => spike encoding (MW / SF / TAE) => FC-SNN (LIF)
+Batch = 32
+Lr = 0.01, 100 epochs
+Macro-accuracy evaluation",1,1,1,1,1,0.0,5
+rayyan-378478367,P17,2024,Spiking Neural Networks for Nonlinear Regression of Complex Transient Signals on Sustainable Neuromorphic Processors,"Abstract             By mimicking the neurons and synapses of the human brain and employing spiking neural networks on neuromorphic chips, neuromorphic computing offers a promising energy-efficient machine intelligence. How to borrow high-level brain dynamic mechanisms to help neuromorphic computing achieve energy advantages is a fundamental issue. This work presents an application-oriented algorithm-software-hardware co-designed neuromorphic system for this issue. First, we design and fabricate an asynchronous chip called ``Speck'', a sensing-computing neuromorphic system on chip. With the low processor resting power of 0.42mW, Speck can satisfy the hardware requirements of dynamic computing: no-input consumes no energy. Second, we uncover the ``dynamic imbalance'' in spiking neural networks and develop an attention-based framework for achieving the algorithmic requirements of dynamic computing: varied inputs consume energy with large variance. Together, we demonstrate a neuromorphic system with real-time power as low as 0.70mW. This work exhibits the promising potentials of neuromorphic computing with its asynchronous event-driven, sparse, and dynamic nature.","Stoffel, Marcus; Tandale, Saurabh Balkrishna",,10.1038/s44335-024-00002-4,,learnable and adaptive encoding,"Synaptic weights
+Temporal decay parameters
+Membrane thresholds",Surrogate gradient,Hybrid ANN–SNN architecture,"
+Sparse spike activity",Energy efficiency computation,"Slower
+Stable",Robustness,Real Numbers,Real Numbers,Custom,Regression task,"Root Mean Squared Error (RMSE)
+Energy","Training scalability Limitations
+Hardware Limitations
+Energy Estimation Limitations","Energy values are estimated using KerasSpiking (not direct hardware measurements)
+Training time of SNNs is longer than ANN counterparts
+Full deployment on neuromorphic hardware is constrained by dense layers","Limited prior work on nonlinear regression with SNNs
+Need for broader application domains and deeper fully spiking architectures
+Further validation on real neuromorphic hardware beyond partial deployment","Loihi
+GPU \CPU",Novel Algorithmic Framework,Recurrent Spiking Neural Network (RSNN),Not Available ,"Neuron: LIF
+Adam optimizer (lr = 0.001, β₁ = 0.9, β₂ = 0.999)
+Surrogate-gradient learning
+Hyperband architecture search
+RMSE loss",2,2,1,2,2,2.0,11
+rayyan-388589275,P18,2024,STAL: Spike Threshold} {Adaptive} {Learning} {Encoder} for {Classification} of {Pain}-{Related} {Biosignal} {Data},"For energy-efficient computation in specialized neuromorphic hardware, we present spiking neural coding, an instantiation of a family of artificial neural models grounded in the theory of predictive coding. This model, the first of its kind, works by operating in a never-ending process of “guess-and-check”, where neurons predict the activity values of one another and then adjust their own activities to make better future predictions. The interactive, iterative nature of our system fits well into the continuous time formulation of sensory stream prediction and, as we show, the model’s structure yields a local synaptic update rule, which can be used to complement or as an alternative to online spike-timing dependent plasticity. In this article, we experiment with an instantiation of our model consisting of leaky integrate-and-fire units. However, the framework within which our system is situated can naturally incorporate more complex neurons such as the Hodgkin-Huxley model. Our experimental results in pattern recognition demonstrate the potential of the model when binary spike trains are the primary paradigm for inter-neuron communication. Notably, spiking neural coding is competitive in terms of classification performance and experiences less forgetting when learning from a task sequence, offering a more computationally economical, biologically-motivated alternative to popular artificial neural networks.","Hens, Freek; Dehshibi, Mohammad Mahdi; Bagheriye, Leila; Shahsavari, Mahyar; Tajadura-Jiménez, Ana",,10.48550/arXiv.2407.08362,http://arxiv.org/abs/2407.08362,learnable and adaptive encoding,"Synaptic weights
+Membrane thresholds",Surrogate gradient,Hybrid ANN–SNN architecture,Sparse spike activity,Energy efficiency computation,Stable,"Robustness
+Performance",Multimodal,"Electromyography (EMG)
+Inertial measurement unit (IMU)",EmoPain dataset,Classification task,"Accuracy
+F1
+AUC
+Matthews Correlation Coefficient (MCC)
+Spike density","Hardware Limitations
+Energy Estimation Limitations
+Generalizability Limitations","Small dataset size and class imbalance
+Higher spike density for best-performing STAL–Stacked variant
+No deployment on neuromorphic hardware
+Performance lower than deep learning models in AUC","Neuromorphic hardware implementation and benchmarking
+Extension to multi-level pain intensity and behavior classification
+Broader biosignal domains
+Real-world wearable deployment",GPU \CPU,Architecture proposal,Ensemble of Spiking Recurrent Neural Network (SRNN),Available ,"Neuron: LIF
+AdamW optimizer
+LR = 5e-3 (encoder), 7.5e-4 (SRNN)
+batch sizes {sEMG:32, Energy:8, Angle:16}
+ψ = 5 spikes/step
+dropout = 0.5
+30 encoder epochs
+25 SRNN epochs
+early stopping
+LOSO (Leave-One-Subject-Out) cross-validation",2,2,1,2,2,2.0,11
+rayyan-388589277,P19,2024,Ternary {Spike}-based {Neuromorphic} {Signal} {Processing} {System},"Autonomous obstacle avoidance is of vital importance for an intelligent agent such as a mobile robot to navigate in its environment. Existing state-of-the-art methods train a spiking neural network (SNN) with deep reinforcement learning (DRL) to achieve energy-efficient and fast inference speed in complex/unknown scenes. These methods typically assume that the environment is static while the obstacles in real-world scenes are often dynamic. The movement of obstacles increases the complexity of the environment and poses a great challenge to the existing methods. In this work, we approach robust dynamic obstacle avoidance twofold. First, we introduce the neuromorphic vision sensor (i.e., event camera) to provide motion cues complementary to the traditional Laser depth data for handling dynamic obstacles. Second, we develop an DRL-based event-enhanced multimodal spiking actor network (EEM-SAN) that extracts information from motion events data via unsupervised representation learning and fuses Laser and event camera data with learnable thresholding. Experiments demonstrate that our EEM-SAN outperforms state-of-the-art obstacle avoidance methods by a significant margin, especially for dynamic obstacle avoidance.","Wang, Shuai; Zhang, Dehao; Belatreche, Ammar; Xiao, Yichen; Qing, Hongyu; We, Wenjie; Zhang, Malu; Yang, Yang",,10.48550/arXiv.2407.05310,http://arxiv.org/abs/2407.05310,Adaptive encoding,Adaptive (data-driven) parameters,Surrogate gradient,Pure SNN architecture,"Sparse spike activity
+Reduced firing rate","Energy efficiency computation
+Memory-efficient
+Multiplication-free inference (MFI)",Stable,"Robustness
+Performance","Biosignals
+Audio","Electroencephalogram (EEG)
+Raw audio waveform (time-domain signal)","Google Speech Commands(GSC)
+KUL EEG dataset
+DTU EEG dataset","Classification task
+Speech recognition","Accuracy
+Memory usage
+Precision(weights / membrane potentials)
+# Timesteps
+# Add
+# Mult
+Energy","Hardware Limitations
+Energy Estimation Limitations
+Generalizability Limitations","Energy evaluation based on theoretical analysis only
+No real neuromorphic hardware deployment
+Evaluation limited to speech and EEG tasks","Deployment on real neuromorphic chips
+Extension to additional signal modalities
+On-chip learning validation",GPU \CPU,Architecture proposal,Quantized Ternary Spiking Neural Network (QT-SNN),Not Available ,"Neuron: LIF
+STBP; τ = 0.5
+Learnable Vth/α₁ => inside the QT-SNN neuron model (not in the encoding stage)
+α₃/α₁ constrained to powers of two
+4 inference timesteps
+Raw signal → TAE → ternary spikes → QT-SNN; STBP training; learnable threshold scaling & spike amplitude; quantized inference with bit-shift operations",2,2,1,2,2,2.0,11
